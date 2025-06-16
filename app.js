@@ -33,8 +33,8 @@ app.post('/login', async (req, res) => {
   res.json({ token });
 });
 
+
 app.get('/home', (req, res) => {
-  res.send("<h1>HAi<h1>")
   const token = req.headers.authorization?.split(' ')[1];
   if (!token) return res.status(401).json({ error: 'Token missing' });
   try {
@@ -44,6 +44,7 @@ app.get('/home', (req, res) => {
     res.status(403).json({ error: 'Invalid token' });
   }
 });
+
 
 app.listen(5000, () => {
   console.log("Server started on port 5000");
