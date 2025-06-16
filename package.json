@@ -1,5 +1,6 @@
 {
-  "name": "backend",
+  "name": "mern",
+  "type": "module"
   "main": "app.js",
   "scripts": {
     "start": "node server.js"
@@ -12,8 +13,4 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.6.1"
   },
-  {
-  "type": "module"
-}
-
 }
