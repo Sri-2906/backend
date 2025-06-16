@@ -45,4 +45,7 @@ app.get('/home', (req, res) => {
   }
 });
 
-app.listen(process.env.PORT);
+app.listen(5000, () => {
+  console.log("Server started on port 5000");
+});
+
