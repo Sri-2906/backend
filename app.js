@@ -18,7 +18,9 @@ console.log('yes updated')
 
 
 mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connected'));
-console.log(User.findOne({ "sri"}))
+const user = await User.findOne({ username: "sri" });
+console.log(user);
+
 
 app.post('/signup', async (req, res) => {
   const { username, password } = req.body;
