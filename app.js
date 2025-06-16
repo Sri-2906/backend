@@ -14,6 +14,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connecte
 
 app.post('/signup', async (req, res) => {
   const { username, password } = req.body;
+  console.log(username, password )
   const hash = await bcrypt.hash(password, 10);
   try {
     await new User({ username, password: hash }).save();
