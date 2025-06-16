@@ -14,6 +14,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+console.log('yes updated')
 
 
 mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connected'));
