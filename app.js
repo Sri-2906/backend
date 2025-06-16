@@ -62,7 +62,11 @@ app.get('/home', (req, res) => {
 });
 
 
-app.listen(5000, () => {
-  console.log("Server started on port 5000");
-});
+
+
+
+
+// ✅ Accessible from outside:
+app.listen(5000, '0.0.0.0');
+
 
