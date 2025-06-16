@@ -1,25 +1,30 @@
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('./models/User');
+import dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import User from './models/User.js'; // Make sure this file also uses ESM
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: '*', // allow all origins
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-console.log('yes updated')
 
+mongoose.connect(process.env.MONGO_URI).then(async () => {
+  console.log('MongoDB connected');
 
-mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connected'));
-const user = await User.findOne({ username: "sri" });
-console.log(user);
+  const user = await User.findOne({ username: "sri" });
+  console.log(user);
+}).catch(err => {
+  console.error('MongoDB connection error:', err);
+});
 
 
 app.post('/signup', async (req, res) => {
