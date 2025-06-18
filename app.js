@@ -52,12 +52,12 @@ app.post('/login', async (req, res) => {
 
 app.get('/home', (req, res) => {
   const token = req.headers.authorization?.split(' ')[1];
-  if (!token) return res.status(401).json({ error: 'Token missing' });
+  if (!token) return res.status(401).json({ error: 'Token missing vro' });
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     res.json({ message: 'Welcome', user: decoded.id });
   } catch {
-    res.status(403).json({ error: 'Invalid token' });
+    res.status(403).json({ error: 'Invalid token vrp' });Dashbo
   }
 });
 
