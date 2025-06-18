@@ -61,6 +61,12 @@ app.get('/home', (req, res) => {
   }
 });
 
+app.get('/details'(res,req)=>{
+  let jsonData = {
+    "name":"sri"
+  }
+  res.json(jsonData)
+}
 
 
 
